@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!-- 如采用Servlet3.0时的配置
+
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	 
+	<display-name>com-hcc-ServletFilterListener</display-name>
+	 
+</web-app> 
+
+-->
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
+	id="WebApp_ID" version="3.1"> 
+
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	
+	<!-- context-param：Web应用上下文参数  -->
+	<context-param>
+		<param-name>此Web项目的意义</param-name>
+		<param-value>简单记录servlet、filter、listener的使用方法</param-value>
+	</context-param>
+	
+	
+	<!-- Listener begin -->
+		<listener>
+			<listener-class>com.hcc.listener.WebStartCloseListener</listener-class>
+		</listener>
+		
+		<listener>
+			<listener-class>com.hcc.listener.RequestListener</listener-class>
+		</listener>
+	<!-- Listener end -->
+	
+	
+	<!-- Filter begin -->
+	
+		<filter>
+			<filter-name>LoginFilter</filter-name>
+			<filter-class>com.hcc.filter.LoginFilter</filter-class>
+		</filter>
+		<filter-mapping>
+			<filter-name>LoginFilter</filter-name>
+			<url-pattern>/*</url-pattern> <!-- /*:将拦截过滤所以请求。 -->
+		</filter-mapping>
+		
+	<!-- Filter end -->
+	
+	
+	<!-- Servlet begin -->
+	
+		<servlet>
+			<servlet-name>TimeServlet</servlet-name>
+			<servlet-class>com.hcc.servlet.TimeServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>TimeServlet</servlet-name>
+			<url-pattern>/time</url-pattern>
+		</servlet-mapping>
+		
+	<!-- Servlet end -->
+	
+</web-app>

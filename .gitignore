@@ -1,0 +1,32 @@
+## Java .class files ##
+*.class
+
+
+## Build targets ##
+/target
+*/target
+
+
+dependency-reduced-pom.xml
+
+
+## Package files ##
+*.jar
+*.war
+*.ear
+
+
+## Eclipse project files ##
+.project
+.classpath
+.settings
+.metadata
+
+
+## IntelliJ IDEA project files and directories ##
+*.iml
+*.ipr
+*.iws
+.idea/
+
+
